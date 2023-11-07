@@ -1,0 +1,23 @@
+<!doctype html>
+<header>
+<script>
+async function getHelloMessage() {
+try {
+const nom=document.getElementById('text').value;
+const response = await fetch(`http://
+localhost:3000/hello/${nom}`, {
+headers: {
+'Content-Type': 'application/json',
+},
+});
+const helloMessage = await response.json();
+alert(JSON.stringify(helloMessage));
+} catch (error) {
+console.error(error);
+}
+}
+</script>
+</header>
+<button onclick="getHelloMessage()">Cliquez ici</button>
+<input type="text" id="text"/>
+</body>
